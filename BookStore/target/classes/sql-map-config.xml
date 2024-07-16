@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.yhs.project.dto.MemberVO" alias="member"/>
+		<typeAlias type="com.yhs.project.dto.QnaVO" alias="qna"/>
+		<typeAlias type="com.yhs.project.dto.AQnaVO" alias="aqna"/>
+		<typeAlias type="com.yhs.project.dto.NoticeVO" alias="notice"/>
+		<typeAlias type="com.yhs.project.dto.BookVO" alias="book"/>
+		<typeAlias type="com.yhs.project.dto.OrderVO" alias="cart"/>
+		<typeAlias type="com.yhs.project.dto.OrderVO" alias="order"/>
+		<typeAlias type="com.yhs.project.dto.ReplyVO" alias="reply"/>
+	</typeAliases>
+	
+    <!-- SQL 명령어들이 저장된 SQL 파일 등록 -->
+	<mappers>
+		<mapper resource="mappings/member_mapping.xml"/>
+		<mapper resource="mappings/qna_mapping.xml"/>
+		<mapper resource="mappings/notice_mapping.xml"/>
+		<mapper resource="mappings/book_mapping.xml"/>
+		<mapper resource="mappings/cart_mapping.xml"/>
+		<mapper resource="mappings/order_mapping.xml"/>
+		<mapper resource="mappings/reply_mapping.xml"/>
+	</mappers>
+</configuration>

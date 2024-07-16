@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Spring MVC의 @Controller 프로그래밍 모델을 활성화 -->
+	<annotation-driven />
+
+	<!-- /resources/** 경로에 대한 HTTP GET 요청을 처리하여 ${webappRoot}/resources 디렉토리에서 정적 리소스를 효율적으로 제공 -->
+	<resources mapping="/resources/**" location="/resources/" />
+
+	<!-- @Controller가 선택한 뷰를 /WEB-INF/views 디렉토리에 있는 .jsp 리소스로 해석하여 렌더링 -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<!-- com.yhs.project 패키지에서 스프링 컴포넌트를 자동으로 검색하고 등록 -->
+	<context:component-scan base-package="com.yhs.project" />
+	
+</beans:beans>

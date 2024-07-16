@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+#cart_list{
+	min-height: 600px;
+	margin-top: 50px;
+}
+
+#cart_list #cartList {
+	text-align: center;
+}
+#cart_list .cartTitle {
+	font-size: 20px; 
+	background-color: #f4f4f4;
+}
+
+#cart_list table .cartTitle th {
+	width: 120px;
+	padding: 10px 0px;
+}
+
+#cart_list table tr td img {
+	height: 90px;
+}
+
+#cart_list table .cartInfo td {
+	width: 120px;
+	height: 110px;
+	text-align: center;
+	border-bottom: 1px solid #c2c2c2;
+	background-color: white;
+	font-weight: bold;
+}
+#cart_list table .cartInfo td a {
+	color: black;
+}
+#cart_list table tr td .plusBtn .img1 {
+	height: 22px;
+	position: relative;
+	top: 3px;
+	right: 10px;
+}
+#cart_list table tr td .minusBtn .img2 {
+	height: 27px;
+	position: relative;
+	top: 6px;
+	right: 20px;
+}
+#cart_list table .cartInfo td .updateQuantity {
+	color: red;
+}
+#cart_list h2{
+	margin-bottom: 50px;
+	text-align: center;
+}
+#cart_list table .cartTotal th {
+	padding-top: 10px;
+	text-align: center;
+	padding-bottom: 10px;
+	background-color: gray;
+	color: white;
+}
+
+#cart_list .buttons{
+	text-align: center;
+	margin-top: 50px;
+}
+
+#cart_list .buttons .btn{
+	background-color: black;
+	color: white;
+	padding: 5px 10px;
+	cursor: pointer;
+}

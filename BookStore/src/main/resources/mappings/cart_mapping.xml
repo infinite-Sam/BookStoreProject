@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CartDAO">
+
+<!-- 카트 추가 -->
+	<insert id="insertCart">
+		insert into cart(cseq, id, bseq, quantity)
+		values(cart_seq.NEXTVAL, #{id}, #{bseq}, #{quantity}) 
+	</insert>
+	
+	
+	<!-- 카트 삭제 -->
+	<delete id="deleteCart">
+		delete from cart where cseq = #{cseq}
+	</delete>
+	
+	<!-- 카트 수량 수정 -->
+	<update id="cartCount">
+		update cart set quantity=#{quantity} where cseq = #{cseq}
+	</update>
+	
+	<!-- 카트 목록 -->
+	<select id="listCart" resultType="cart">
+		select a.cseq, a.id, a.bseq, a.quantity, b.title, b.price
+		from cart a left outer join book b on a.bseq = b.bseq
+		where id = #{id}	
+	</select>
+	<!-- 카트 확인 -->
+	<select id="getCart" resultType="cart">
+		select * from cart 
+		where id = #{id} and bseq = #{bseq}
+	</select>
+</mapper>
+
+
+
+
+
+
+

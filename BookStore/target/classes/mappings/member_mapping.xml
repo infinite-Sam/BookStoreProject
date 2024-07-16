@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAO">
+	
+	<!-- 사용자정보 조회 -->
+	<select id="getMember" resultType="member">
+		select * from member
+			where id=#{id, jdbcType=VARCHAR}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="confirmID" resultType="String">
+		select pwd from member
+			where id=#{id}
+	</select>
+	
+	<!-- 회원가입 -->
+	<insert id="insertMember">
+		INSERT INTO member(id, pwd, name, email, zipnum, addr, phone)
+		VALUES(#{id}, #{pwd}, #{name}, #{email}, #{zipnum}, #{addr}, #{phone})
+	</insert>
+	
+	<!-- 아이디 존재여부 확인 -->
+	<select id="idCheck" resultType="int">
+  		select count(*) from member where id = #{id}
+  	</select>
+  	
+  	<!-- 이메일 존재여부 확인 -->
+	<select id="emailCheck" resultType="int">
+  		select count(*) from member where email = #{email}
+  	</select>
+	
+	<!-- 사용자의 이름(name)과 email과 폰번호를 조건으로 id 조회 -->
+	<select id="getMemberId" resultType="member">
+		SELECT id FROM member
+		WHERE name=#{name} AND email=#{email} and phone=#{phone}
+	</select>
+	
+	<!-- 사용자의 아이디, 이름(name)과 email을 조건으로 비밀번호 조회 -->
+	<select id="getMemberPwd" resultType="member">
+		SELECT * FROM member
+		WHERE name=#{name} and id=#{id} AND email=#{email} and phone=#{phone}
+	</select>
+	
+	<!-- 정보 변경 업데이트 -->
+	<update id="updateMember">
+		UPDATE member SET 
+		pwd=#{pwd, jdbcType=VARCHAR},
+		zipnum=#{zipnum},
+		addr=#{addr, jdbcType=VARCHAR},
+		phone=#{phone, jdbcType=VARCHAR}
+		where id=#{id, jdbcType=VARCHAR}
+	</update>
+	
+	
+	<select id="listMember" parameterType="String" resultType="member">
+		select * from member
+	</select>
+	
+	<delete id="deleteMember">
+		delete from member 
+			where id=#{id}
+	</delete>
+</mapper>

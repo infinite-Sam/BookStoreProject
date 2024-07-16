@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- com.yhs.view 패키지에서 스프링 컴포넌트를 자동으로 검색하고 등록 -->
+	<context:component-scan base-package="com.yhs.view"/>
+
+	<!-- @Controller, @RequestMapping 등을 사용할 수 있도록 설정 -->
+    <mvc:annotation-driven/>
+
+	<mvc:resources location="/WEB-INF/resources/css/" mapping="/css/**" />
+	<mvc:resources location="/WEB-INF/resources/images/" mapping="/images/**" />
+	<mvc:resources location="/WEB-INF/resources/js/" mapping="/js/**" />
+	<!-- /WEB-INF/views/member/경로를 /member/**로 매핑 -->
+	<mvc:resources location="/WEB-INF/views/member/" mapping="/member/**" />
+	<mvc:resources location="/WEB-INF/views/admin/" mapping="/admin/**" />
+	<mvc:resources location="/WEB-INF/views/mypage/" mapping="/mypage/**" />
+	<mvc:resources location="/WEB-INF/views/service/" mapping="/service/**" />
+	<mvc:resources location="/WEB-INF/views/book/" mapping="/book/**" />
+
+	<!-- JSP 파일을 뷰로 사용하기 위한 설정 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- JSP 파일 경로의 접두사 -->
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<!-- JSP 파일 경로의 접미사 -->
+		<property name="suffix" value=".jsp"/>
+		<!-- 뷰의 컨텐츠 타입을 설정 -->
+		<property name="contentType" value="text/html; charset=UTF-8"/>
+	</bean>
+
+	<!-- 파일 전송 객체 -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- 업로드 파일의 최대 크기 설정 -->
+		<property name="maxUploadSize" value="-1"/>
+		<!-- 업로드 요청을 변환할 때 사용할 문자 인코딩 방식 -->
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
+	
+</beans>

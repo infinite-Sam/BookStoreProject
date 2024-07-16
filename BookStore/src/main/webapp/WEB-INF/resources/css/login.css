@@ -1,0 +1,102 @@
+@charset "UTF-8";
+/* 로그인 */
+.loginWrap {
+	position: relative;
+	width: 100%;
+	min-height: 800px;
+}
+
+#loginimg img {
+	position: absolute;
+	top: 200px;
+	left: 800px;
+	width: 500px;
+	height: 450px;
+	border-bottom-right-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+#loginForm {
+	background-color: #f6faf1; /* 로그인폼의 배경색 */
+	width: 500px;
+	height: 450px;
+	padding: 20px;
+	text-align: center;
+	position: absolute;
+	top: 200px;
+	left: 300px;
+	border-bottom-left-radius: 15px;
+	border-top-left-radius: 15px;
+	float: left;
+}
+
+#loginForm h2 {
+	text-align: center;
+	margin: 10px 0px 10px;
+	font-size: 40px;
+}
+
+#loginForm>#idForm {
+	border-bottom: 2px solid #adadad;
+	margin: 70px 30px 30px 30px;
+	padding: 5px;
+}
+
+#idForm>#id {
+	width: 100%;
+	border: none;
+	color: #636e72;
+	font-size: 18px;
+	height: 30px;
+	background: none; /* 텍스트백그라운드 없애기 */
+	outline: none; /* 텍스트박스 클릭스 아웃라인 없애기 */
+}
+
+#loginForm>#passForm {
+	border-bottom: 2px solid #adadad;
+	margin: 30px;
+	padding: 5px;
+}
+
+#passForm>#pw {
+	width: 100%;
+	border: none;
+	color: #636e72;
+	font-size: 18px;
+	height: 30px;
+	background: none; /* 텍스트백그라운드 없애기 */
+	outline: none;
+}
+
+#loginForm>#loginBtn { /* 로그인 버튼 */
+	margin-bottom: 35px; /* 밑공간 */
+	width: 70%;
+	height: 50px;
+	background-image: url("../images/member/loginBtn.jpg");
+	color: white;
+	font-weight: bold;
+	border: none; /* 테두리 없애기 */
+	cursor: pointer; /* 마우스 올렸을때 손모양 */
+	font-size: 20px;
+	border-radius: 27px;
+}
+
+#loginForm>#findText { /* 아이디, 비밀번호 찾기 */
+	text-align: center;
+	float: right;
+	margin-right: 40px;
+	font-size: 14px;
+}
+
+#loginInfo { /* 로그인 화면 안내 */
+	color: balck;
+	width: 1150px;
+	font-size: 13px;
+	position: absolute;
+	top: 700px;
+	left: 200px;
+}
+
+#loginInfo>p {
+	margin-left: 50px;
+}

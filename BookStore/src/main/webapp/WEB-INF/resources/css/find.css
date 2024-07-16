@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+.findInfo {
+	width: 600px;
+	float: left;
+}
+.findInfo ul li a{
+	color: white;
+}
+.findInfo form{
+	width: 100%;
+	margin-top: 40px;
+	margin-left: 5%;
+}
+.findInfo form .inputInfo{
+	margin-bottom: 15px;
+}
+.findInfo form .inputInfo label{
+	font-size: 20px;
+	margin-right: 10px;
+	font-weight: bold;
+}
+.findInfo form{
+	width: 100%;
+}
+#findResult {
+	margin-left: 200px;
+	margin-top: 200px;
+}
+
+.navInfo  {
+	margin-left:5%;
+	margin-top: 5%;
+	width: 300px; 
+	display : -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
+	display: -ms-flexbox;
+}
+
+.navInfo-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  background-color: #c0c0c0;
+}
+
+.navInfo-link:hover, .navInfo-link:focus {
+  text-decoration: none;
+}
+
+.nav-info .navInfo-link {
+  border-radius: 0.25rem;
+}
+
+.nav-info .navInfo-link.active,
+.nav-info .show > .navInfo-link {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.nav-info .navInfo-item {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: center;
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="NoticeDAO">
+
+	<!-- 공지사항 목록 조회 -->
+	<select id="listNotice" parameterType="String"
+		resultType="notice">
+		SELECT * FROM notice
+		ORDER BY nseq DESC
+	</select>
+
+	<!-- 공지사항 상세보기 -->
+	<select id="getNotice" parameterType="int" resultType="notice">
+		SELECT * FROM notice
+			WHERE nseq=#{nseq}
+	</select>
+	
+	<!-- 공지사항 등록 --> 
+	<insert id="insertNotice">
+		INSERT INTO notice(nseq, title, content, name, indate)
+		VALUES (notice_seq.NEXTVAL, #{title}, #{content}, #{name}, TO_char(sysdate, 'yyyy.mm.dd hh24:mi'))
+	</insert>
+	
+	<!-- 공지사항 삭제 -->
+	<delete id="deleteNotice">
+		delete from notice
+			where nseq=#{nseq}
+	</delete>
+	
+	<!-- 공지사항 수정 -->
+	<update id="updateNotice">
+		update notice set 
+			title=#{title}, content=#{content}, indate=TO_char(sysdate, 'yyyy.mm.dd hh24:mi')
+			where nseq=#{nseq}
+	</update>
+</mapper>

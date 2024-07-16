@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="QnaDAO">
+	
+	<!-- my qna 목록 조회 --> 
+	<select id="listQna" parameterType="String" resultType="qna">
+		SELECT * FROM qna
+		where id=#{id}
+			ORDER BY qseq DESC
+	</select>
+
+	<!-- qna 상세보기 --> 
+	<select id="getQna" parameterType="int" resultType="qna">
+		SELECT * FROM qna
+		 WHERE qseq=#{qseq}
+	</select>
+	
+	<!-- qna 등록 --> 
+	<insert id="insertQna">
+		INSERT INTO qna(qseq, title, content, id, indate)
+		VALUES (qna_seq.NEXTVAL, #{title}, #{content}, #{id}, TO_char(sysdate, 'yyyy.mm.dd hh24:mi'))
+	</insert>
+	
+	<update id="updateQna">
+		update qna set
+			title=#{title},
+			content=#{content},
+			indate=TO_char(sysdate, 'yyyy.mm.dd hh24:mi')
+			where qseq=#{qseq}
+	</update>
+	
+	<delete id="deleteQna">
+		delete from qna 
+			where qseq=#{qseq}
+	</delete>
+	
+	<!-- aqna 목록 조회 --> 
+	<select id="listAQna" parameterType="String" resultType="aqna">
+		SELECT * FROM a_qna
+		  ORDER BY aqseq DESC
+	</select>
+
+	<!-- aqna 상세보기 --> 
+	<select id="getAQna" parameterType="int" resultType="aqna">
+		SELECT * FROM a_qna
+		 WHERE aqseq=#{aqseq}
+	</select>
+	
+	<insert id="insertAqna">
+		INSERT INTO a_qna(aqseq, title, questions, answer, name)
+		VALUES (aqna_seq.NEXTVAL, #{title}, #{questions}, #{answer}, #{name})
+	</insert>
+	
+		<update id="updateAqna">
+		update a_qna set
+			title=#{title},
+			questions=#{questions},
+			answer=#{answer}
+			where aqseq=#{aqseq}
+	</update>
+	
+	<delete id="deleteAqna">
+		delete from a_qna 
+			where aqseq=#{aqseq}
+	</delete>
+	
+	<select id="listMemberQna" parameterType="String" resultType="qna">
+		SELECT * FROM qna
+		 ORDER BY qseq DESC
+	</select>
+	
+	<update id="qnaAnswer">
+		update qna set 
+			reply=#{reply},
+			rep='2'
+			where qseq=#{qseq}
+	</update>
+</mapper>

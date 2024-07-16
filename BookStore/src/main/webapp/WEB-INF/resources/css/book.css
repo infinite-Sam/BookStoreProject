@@ -1,0 +1,231 @@
+@charset "UTF-8";
+
+/* 리스트 */
+.list {
+	width: 80%;
+	text-decoration: none;
+	float: right;
+	min-height: 850px;
+	text-align: center;
+}
+.list a img {
+	width: 200px;
+}
+.list td .info {
+	z-index: 1;
+	padding: 10px 30px;
+}
+
+.list tr .info h2 a{
+	color: rgb(14, 61, 113);
+}
+.list tr .info p span {
+	font-size: 13.5px;
+	font-weight: bold;
+}
+
+/* 상세보기 */
+.bookView {
+	width: 85%;
+	margin-top: 150px;
+	float: right;
+	margin-left: 7%;
+	min-height: 800px;
+}
+.bookView h1 {
+	text-align: center;
+	font-size: 50px;
+	margin-bottom: 20px;
+}
+.bookView hr {
+	width: 80%;
+	margin-bottom: 50px;
+	color: #e6e6e6;
+}
+.bookView .bookImage {
+	float:left;
+	margin-left: 15%;
+	width: 400px;
+}
+.bookView .bookImage img{
+	width: 400px;
+	color: #e6e6e6;
+}
+
+.bookView .bookInfo {
+	float:left;
+	width: 400px;
+	z-index: 1;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+.bookView .bookInfo h2 {
+	text-align: center;
+	font-size: 35px;
+}
+
+.bookView .bookInfo  p {
+	font-size: 25px;
+	padding-top: 10px;
+	margin-bottom: 15px;
+}
+.bookView .bookInfo  p label{
+	font-size: 28px;
+	padding-top: 10px;
+	font-weight: bold;
+}
+.bookView .bookInfo p span{
+	font-size: 31px;
+	padding-top: 10px;
+}
+.bookView .orderButtons {
+	text-align: center;
+	margin-bottom: 80px;
+	clear: both;
+}
+.bookView .orderButtons .obtn {
+	height: 60px;
+	width: 150px;
+	color: white;
+	margin-top:23px;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+}
+.bookView span .img1 {
+	width: 18px;
+	height: auto;
+	position: relative;
+	top: 3px;
+	right: 6px;
+}
+.bookView span .img2 {
+	width: 22px;
+	position: relative;
+	top: 6px;
+	right: 12px;
+}
+.plusBtn, .minusBtn {
+	cursor: pointer;
+	user-select : none;
+}
+.bookView .bookInfo .obtn {
+	cursor:  pointer;
+	width: 130px;
+	height: 45px;
+	font-size: 20px;
+	font-weight: bold;
+	color: white;
+}
+.bookView .bookContent{
+	clear: both;
+	width: 800px;
+	text-align: center;
+	font-size: 30px;
+	margin-bottom: 50px;
+}
+.bookView .bookContent span{
+	font-size: 20px;
+}
+.bookView .bookContent .btn{
+	background: black;
+	color: white;
+	font-size: 17px;
+	padding: 5px;
+	cursor: pointer;
+}
+/* 등록 화면 */
+#write_form {
+	width: 85%;
+	margin-top: 150px;
+	float: right;
+	margin-right: 0px;
+	min-height: 800px;
+	text-align: center;
+}
+
+#write_form h1{
+	margin-bottom: 30px;
+	text-align: center;
+}
+#write_form table tr td {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+#write_form .buttons {
+	text-align: center;
+}
+
+#write_form .buttons .btn {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+/* 수정화면 */
+#update_form {
+	width: 85%;
+	margin-top: 150px;
+	float: right;
+	margin-right: 0px;
+	min-height: 800px;
+}
+
+#update_form h1{
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+#update_form .buttons {
+	text-align: center;
+}
+
+#update_form .buttons .btn {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+/* 상세보기 댓글 */
+.bookView .reviewWrap {
+	position: relative;
+	width: 80%;
+	left: 7%;
+}
+.reviewWrap .review {
+	position:relative;
+	width: 70%;
+	margin-bottom: 60px;
+	list-style: circle;
+}
+.reviewWrap .review ul {
+	border-bottom: 1px solid black;
+	padding: 10px;
+}
+.reviewWrap .review_write {
+	position:relative;
+	width: 70%;
+	margin-left: 5%;
+	margin-bottom: 30px;
+}
+.reviewWrap .review_write button {
+	position: absolute;
+	top: 0px;
+	left: 92%;
+	width: 10%;
+	height: 70px;
+	background-color: black;
+	color: white;
+}

@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+.orderingList h1{
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 40px;
+}
+.orderingList .deliveryInfo {
+	margin-bottom: 8px;
+	width: 750px;
+	height: 200px;
+	border: 1px solid #408080;
+	border-radius: 10px;
+	padding: 17px 30px;
+	background-color: #e9f3f3;
+}
+
+.orderingList .deliveryInfo legend {
+	font-size: 25px;
+	padding: 0px 20px;
+	font-weight: bold;
+}
+.orderingList .deliveryInfo span {
+	font-size: 20px;
+	font-weight: bold;
+}
+.orderingList .btn {
+	padding: 2px;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: gray;
+	color: #d2ffd2;
+	cursor: pointer;
+	position: relative;
+	left: 970px;
+	bottom: 70px;
+}
+.orderingList .btn2 {
+	padding: 2px;
+	font-size: 15px;
+	font-weight: bold;
+	background-color: gray;
+	color: #d2ffd2;
+	cursor: pointer;
+}
+.updateGetOrderBtn {
+	text-align: center;
+	margin-top: 50px;
+}
+.updateQuantity {
+	cursor: pointer;
+	font-size:11px;
+	padding: 3px;
+	margin-top: 10px;
+	margin-left: 15px;
+}
+#cart_list .orderTitle {
+	font-size: 20px; 
+	background-color: #f4f4f4;
+}
+
+#cart_list table .orderTitle th {
+	width: 80px;
+	padding: 10px 0px;
+}

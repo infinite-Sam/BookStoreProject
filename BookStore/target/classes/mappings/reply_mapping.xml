@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ReplyDAO">
+
+	<!-- 댓글등록 -->
+  	<insert id="insertReply">
+  		insert into reply(rseq, bseq, oseq, id, content, rating, indate) 
+  		values(reply_seq.NEXTVAL, #{bseq}, #{oseq}, #{id}, #{content}, #{rating}, TO_char(sysdate, 'yyyy.mm.dd hh24:mi'))
+  	</insert>
+  	<select id="getOrder" resultType="order">
+		select * from orders 
+		where oseq = #{oseq}
+	</select>
+	<!-- 댓글상세보기 -->
+	<select id="getReply" resultType="reply">
+		select * from reply
+			where oseq=#{oseq}
+	</select>
+  	<!-- 댓글수정 -->
+  	<update id="updateReply">
+  		update reply set
+  		content = #{content}, 
+  		rating = #{rating}, 
+  		indate = TO_char(sysdate, 'yyyy.mm.dd hh24:mi')
+  		where oseq = #{oseq}
+  	</update>
+  	<!-- 댓글 삭제 -->
+	<delete id="deleteReply">
+		delete from reply
+			where rseq=#{rseq}
+	</delete>
+</mapper>

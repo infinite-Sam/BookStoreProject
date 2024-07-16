@@ -1,0 +1,210 @@
+@charset "UTF-8";
+
+/* 회원가입 */
+.join {
+	border-top: 3px solid black;
+	border-bottom: 3px solid black;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.col1, .col2 {
+	border-bottom: 1px dotted black;
+}
+
+caption h2 {
+	text-align: left;
+	margin-bottom: 20px;
+}
+
+.col1 {
+	background-color: #e8e8e8;
+	padding: 10px;
+	text-align: right;
+	font-weight: bold;
+	font-size: 0.8em;
+}
+
+.col2 {
+	text-align: left;
+	padding: 5px;
+}
+
+.but1 {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+}
+
+.dup {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+}
+
+.but3 {
+	height: 35px;
+	width: 150px;
+	background-color: white;
+	border: 2px solid black;
+}
+
+.but4 {
+	height: 35px;
+	width: 150px;
+	background-color: white;
+	border: 2px solid black;
+}
+
+.but1:hover {
+	background-color: #b9b9b9;
+	color: black;
+	border: 2px solid black;
+}
+
+.but2:hover {
+	background-color: #b9b9b9;
+	color: black;
+	border: 2px solid black;
+}
+
+.but3:hover {
+	background-color: black;
+	color: white;
+	border: 2px solid black;
+}
+
+.but4:hover {
+	background-color: black;
+	color: white;
+	border: 2px solid black;
+}
+
+.col2 p {
+	font-size: 0.7em;
+}
+
+.g {
+	font-size: 0.7em;
+}
+
+.c {
+	font-size: 0.7em;
+}
+
+.a {
+	font-size: 0.7em;
+}
+
+.num {
+	color: red;
+}
+
+div.create {
+	width: 800px;
+	text-align: center;
+	padding: 30px;
+	margin: auto;
+}
+
+
+
+/* 약관동의 */
+input {
+	border: 1px #cecece solid;
+}
+
+div.stepLine {
+	display: inline-block;
+	border-bottom: 1px solid #f67001;
+	height: 0;
+	margin-top: 100px;
+}
+
+div.stepDot {
+	width: 15px;
+	height: 15px;
+	background-color: #fff;
+	border: 1px solid #cecece;
+	border-radius: 50%;
+	float: left;
+	margin: -8px 40px 0px 40px;
+	color: #cecece;
+}
+
+div.stepDot.activeStep {
+	background-color: #f67001 !important;
+	border-color: #f67001 !important;
+	color: #f67001;
+}
+
+div.stepDot.activeStep ~ div.stepDot {
+	background-color: #fff;
+	border: 1px solid #f67001;
+}
+
+div.stepDot:after {
+	content: attr(title);
+	white-space: nowrap;
+	position: relative;
+	top: 20px;
+	right: 8px;
+	font: 12px arial, sans-serif;
+}
+
+.contractbtn {
+	text-align: center;
+}
+
+.btn_join {
+	background-color: black;
+	border-color: black;
+	color: white;
+	padding: 2px;
+	cursor: pointer;
+}
+
+.btn_cancel {
+	background-color: black;
+	border-color: black;
+	color: white;
+	border: none;
+	padding: 3px;
+	cursor: pointer;
+}
+
+	/* 중복아이디 존재하지 않는경우 */
+	.idCheck1 {
+		color : blue;
+		display : none;
+	}
+	/* 중복아이디 존재하는 경우 */
+	.idCheck2{
+		color : red;
+		display : none;
+	}
+	/* 이메일이 존재하는 경우 */
+	.emailCheck2{
+		color : red;
+		display : none;
+	}
+.mailChkBut, .mailcodeChk {
+	width: 90px; 
+	font-size: 13px; 
+	text-align: center;
+	padding: 3px;
+	background-color: black;
+	color: white;
+	cursor: pointer;
+}
+
+.correct{
+    color : green;
+}
+.incorrect{
+    color : red;
+}

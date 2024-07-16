@@ -1,0 +1,151 @@
+@charset "UTF-8";
+
+/* 공지사항 */
+.noticeList {
+	text-align: center;
+	min-height: 600px;
+	margin-top: 50px;
+}
+
+.noticeList h2 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 20px;
+}
+
+.noticeList .submit {
+	height: 25px;
+	width: 90px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+	position: relative;
+	left: 34%;
+}
+
+.noticeList table {
+	border-top: 2px solid blue;
+	border-bottom: 2px solid blue;
+	border-collapse: collapse;
+	width: 75%;
+	margin: auto;
+	margin-bottom: 120px;
+}
+
+.noticeList table td, .qnaList th {
+	border: 1px solid rgb(14, 61, 113);
+	border-left: none;
+	border-right: none;
+	padding: 5px 0px;
+}
+
+.noticeList .submit {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+	position: relative;
+	left: 34%;
+}
+
+/* 공지사항 상세보기 */
+.notieWrap {
+	text-align: center;
+}
+
+.noticeDetail {
+	margin-top: 200px;
+	width: 80%;
+}
+
+.noticeDetail h1 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 35px;
+	position: relative;
+	left: 10%;
+}
+
+.noticeDetail .noticeTitle {
+	border-top: 1px solid blue;
+	border-bottom: 1px solid blue;
+	align: center;
+	width: 80%;
+}
+
+.noticeTitle h2 {
+	color: rgb(14, 61, 113);
+	position: relative;
+	left: 7%;
+}
+
+.noticeTitle p {
+	color: black;
+	position: relative;
+	left: 7%;
+}
+
+.noticeContent {
+	min-height: 500px;
+	width: 80%;
+	padding: 20px;
+}
+
+.noticeDetail #buttons {
+	text-align: center;
+}
+
+.noticeDetail #buttons .submit {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+}
+
+/* 공지사항 작성 */
+.noticeWrite {
+	text-align: center;
+	margin-top: 200px;
+}
+
+.noticeWrite h2 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 30px;
+}
+
+.inputNotice {
+	margin-bottom: 15px;
+}
+
+.noticeQna label {
+	color: rgb(14, 61, 113);
+	font-weight: bold;
+	width: 100px;
+	margin-bottom: 10px;
+}
+
+.noticeWrite #buttons .submit {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+}
+
+.noticeWrite #buttons .cancel {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+}
+
+.noticeUpdate {
+	position: relative;
+	float: left; 
+}

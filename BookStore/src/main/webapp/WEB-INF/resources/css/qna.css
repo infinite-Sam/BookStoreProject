@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+/* qna */
+.qnaList {
+	margin-top: 150px;
+	text-align: center;
+}
+
+.qnaList h2 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 20px;
+}
+
+.qnaList hr {
+	margin: 10px auto;
+	border: 0;
+	height: 3px;
+	width: 75%;
+	background: rgb(14, 61, 113);
+}
+
+.qnaList table {
+	border-top: 2px solid blue;
+	border-bottom: 2px solid blue;
+	border-collapse: collapse;
+	width: 75%;
+	margin: auto;
+	margin-bottom: 50px;
+}
+
+.qnaList table td, .qnaList th {
+	border: 1px solid rgb(14, 61, 113);
+	border-left: none;
+	border-right: none;
+	padding: 5px 0px;
+}
+
+.qnaList .submit {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+	position: relative;
+	left: 34%;
+}
+
+/* qna 작성 */
+.qnaWrite {
+	text-align: center;
+	margin-top: 200px;
+}
+
+.qnaWrite h2 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 30px;
+}
+
+.inputQna {
+	margin-bottom: 15px;
+}
+
+.inputQna label {
+	color: rgb(14, 61, 113);
+	font-weight: bold;
+	width: 100px;
+	margin-bottom: 10px;
+}
+
+.qnaWrite #buttons .submit, .qnaWrite #buttons .cancel {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+}
+
+/* qna 상세보기 */
+.qnaDetail {
+	margin-top: 200px;
+}
+
+.qnaDetail h2 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.qnaDetail table {
+	width: 50%;
+	margin-bottom: 30px;
+}
+
+.qnaDetail #buttons {
+	text-align: center;
+}
+
+.qnaDetail #buttons .submit {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+}
+
+.qnaDetail table tr th {
+	border: 1px solid black;
+}
+
+.qnaDetail table tr td {
+	padding-left: 20px;
+	border: 1px solid black;
+}
+
+.titleline th {
+	background-color: #e3f2fd;
+}
+
+/* 자주하는질문 상세보기 */
+.aqnaWrap {
+	text-align: center;
+}
+
+.aQnaDetail {
+	margin-top: 200px;
+	width: 80%;
+}
+
+.aQnaDetail h2 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 7px;
+	position: relative;
+	right: 30%;
+}
+
+.aQnaDetail h1 {
+	color: rgb(14, 61, 113);
+	margin-bottom: 30px;
+	text-align: center;
+}
+
+.aQnaDetail #buttons {
+	text-align: center;
+}
+
+.aQnaDetail #buttons .submit {
+	height: 25px;
+	width: 80px;
+	color: white;
+	background-color: black;
+	border-color: black;
+	cursor: pointer;
+}
+
+.questions {
+	position: relative;
+	right: 25%;
+	width: 50%;
+	height: 150px;
+	font-size: 14px;
+	margin-bottom: 20px;
+	font-size: 14px;
+}
+
+.answer {
+	position: relative;
+	right: 25%;
+	width: 50%;
+	height: 150px;
+	font-size: 14px;
+	margin-bottom: 40px;
+	font-size: 14px;
+}

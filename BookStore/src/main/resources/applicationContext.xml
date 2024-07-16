@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<!-- base-package 하위에 있는 모든 클래스를 스캔하여 
+	@Controller, @Service, @Component, @Repository 어노테이션이 있는것들을 찾아 빈으로 등록 -->
+	<context:component-scan base-package="com.yhs.project"/>
+
+	<!-- @Controller, @RequestMapping 등을 사용할 수 있도록 설정 -->
+	<mvc:annotation-driven/>
+	
+	<!-- db.properties 참고하여 DB연결 데이터소스 설정 -->
+	<context:property-placeholder location="classpath:config/db.properties"/>
+	<!-- Apache DBCP를 사용하여 데이터베이스 연결 풀을 구성 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<!-- db.properties 파일에서 로드된 DB값 -->
+		<property name="driverClassName" value="${jdbc.driverClassName}"/>
+		<property name="url" value="${jdbc.url}"/>
+		<property name="username" value="${jdbc.username}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+
+	<!-- MyBatis SqlSessionFactory 설정 -->
+	<!-- SqlSessionTemplate은 SqlSession을 대체하며 
+	쓰레드에 안전하고 여러개의 DAO나 mapper에서 공유할수 있다. -->
+	<bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- 앞에서 정의한 dataSource 빈을 참조하여 MyBatis와 연결 -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- MyBatis 설정 파일(sql-map-config.xml)의 경로 -->
+		<property name="configLocation" value="classpath:sql-map-config.xml"/>
+	</bean>
+	
+	<!-- DAO 클래스에서 DB 연결 세션으로 사용 -->
+	<bean class="org.mybatis.spring.SqlSessionTemplate">
+		<!-- sessionFactory 빈을 생성자의 인수로 전달 -->
+		<constructor-arg ref="sessionFactory"/>
+	</bean>
+	
+	<!-- 이메일 발송 bean 설정 -->
+    <bean id="mailSender"  class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" /> <!-- gmail을 사용 -->
+        <property name="port" value="587" />
+        <property name="username" value="gkstoa3326@gmail.com" />
+        <property name="password" value="fsia nbhx vafe fhbq" />
+        <property name="javaMailProperties">
+            <props>
+                <prop key="mail.transport.protocol">smtp</prop>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+                <prop key="mail.smtps.ssl.trust">*</prop>
+                <prop key="mail.smtps.checkserveridentity">true</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

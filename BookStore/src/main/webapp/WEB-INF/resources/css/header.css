@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+/* header */
+header {
+	height: 100px;
+	min-width: 1400px;
+	top: 0%;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	background-color: rgba(255, 255, 255);
+	position: fixed;
+}
+
+#logo { /* 로고 */
+	float: left; /* 로고 왼쪽 정렬 */
+	width: 20%; /* 로고너비는 헤더전체 너비의 20% 차지 */
+	position: relative;
+	top: 0%;
+	left: 10%;
+}
+
+#logo img {
+	padding: 8px 4px 0px 15px;
+	height: 80px;
+	width: auto;
+}
+
+#go-login {
+	position: relative;
+	right: 10%;
+	top: 10%;
+	float: right;
+}
+
+#go-login a {
+	color: rgba(44, 65, 108);
+	font-size: 12px;
+	font-weight: bold;
+}
+
+nav {
+	margin-top: 1%;
+	float: right;
+	width: 75%;
+	height: 80px;
+	display: inline;
+	z-index: 3;
+}
+
+nav ul {
+	list-style-type: none;
+	margin-left: 100px;
+}
+
+nav ul li { /* 헤더 메뉴 */
+	display: inline-block; /* 가로로 나타내기 */
+	margin-right: 100px;
+}
+
+.dd {
+	position: relative;
+}
+
+.dd-menu {
+	color: rgba(44, 65, 108);
+	padding: 16px;
+	font-size: 18px;
+	cursor: pointer;
+}
+
+.dd-menu a {
+	color: rgb(38, 58, 111);
+}
+
+.dd-content { /* 메뉴에 마우스를 올렸을때 나타나는 박스 */
+	position: absolute;
+	background-color: #f9f9f9;
+	width: 230px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5); /* 그림자 */
+}
+
+.dd-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+.dd-content a span{
+	font-size: 15px;
+}
+.dd-content {
+	display: none;
+}
+
+.dd-menu:hover {
+	border-bottom: 3px solid #4B8A08;
+}
+
+.dd-menu a:hover {
+	color: #ff8040;
+}
+
+.dd:hover .dd-content { /* 메뉴목록에 마우스를 가져다 대면 */
+	display: block; /* 하위목록 세로로 */
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+/* 하위목록에 마우스를 가져다 대었을때 박스 색깔 */
+.dd-content a:hover {
+	background-color: rgba(47, 138, 241, 0.5);
+}
+

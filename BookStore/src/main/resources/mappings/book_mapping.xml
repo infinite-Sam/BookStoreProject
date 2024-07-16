@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BookDAO">
+
+	<!-- 상세보기 -->
+	<select id="getBook" parameterType="int" resultType="book">
+		SELECT * FROM book
+		WHERE
+		bseq=#{bseq}
+	</select>
+
+	<!-- 도서 추가 -->
+	<insert id="insertBook">
+		INSERT INTO book(
+			bseq, title, author, pub, pub_date, info, image, 
+			price, cate1, cate2)
+		VALUES(book_seq.NEXTVAL, #{title}, #{author}, 
+				#{pub}, #{pub_date}, #{info}, #{image}, #{price}, 
+				#{cate1}, #{cate2})
+	</insert>
+
+	<!-- 정보 수정 -->
+	<update id="updateBook">
+		UPDATE book
+		SET title=#{title},
+		author=#{author}, pub=#{pub}, pub_date=#{pub_date},
+		info=#{info}, image=#{image}, price=#{price}, 
+		cate1=#{cate1}, cate2=#{cate2}
+		WHERE bseq=#{bseq}
+	</update>
+
+	<!-- 도서 삭제 -->
+	<delete id="deleteBook" parameterType="int">
+		delete from book
+			where bseq = #{bseq}
+	</delete>
+	
+	<!-- 대분류로 조회한 총 책의 갯수 -->
+	<select id="countBookListCate1"	parameterType="String" resultType="int">
+		SELECT COUNT(*) FROM book
+		 where cate1 = #{cate1}
+	</select>
+	
+	<!-- 대분류&페이지번호 별 도서목록 조회 -->
+ 	<select id="listWithPagingCate1" parameterType="hashmap" resultType="book">
+		<![CDATA[
+	        select * from
+	        	(select /*+INDEX_ASC(book pk_book) */ 
+	        		rownum as rn, bseq, image, author, title, price, pub, replyCount, rating  
+	                from book 
+	                where  cate1 = #{cate1}
+	                and rownum <= #{criteria.pageNum} * #{criteria.amount}
+	                ) 
+	        where rn > (#{criteria.pageNum} -1) * #{criteria.amount}
+	    ]]>
+	</select>
+	
+	<!-- 소분류로 조회한 총 책의 수 -->
+	<select id="countBookListCate2"	parameterType="hashmap" resultType="int">
+		SELECT COUNT(*) FROM book
+		 WHERE cate1 = #{cate1} 
+		 	and cate2 = #{cate2}
+	</select>
+
+	<!-- cate2 페이지번호 별 도서목록 조회 -->
+	<select id="listWithPagingCate2" parameterType="hashMap" resultType="book">
+	    <![CDATA[
+	        select * from
+	        	(select /*+INDEX_ASC(book PK_BOOK) */ 
+	        		rownum as rn, bseq, image, author, title, price, pub, replyCount, rating 
+	                from book 
+	                where  cate1 = #{cate1}
+	                and cate2 = #{cate2}
+	                and rownum <= #{criteria.pageNum} * #{criteria.amount}) 
+	        where rn > (#{criteria.pageNum} -1) * #{criteria.amount}
+	    ]]>
+	</select>
+	
+	<!-- 검색 -->
+  <select id="searchList" resultType="book">
+    SELECT * FROM 
+    	(select /*+INDEX_ASC(book PK_BOOK) */
+    	rownum as rn, bseq, image, author, title, price, pub, rating, replyCount 
+	    from book 
+    <!-- WHERE절을 include 태그로 삽입 -->
+    <include refid="search"></include>
+    	and rownum <![CDATA[<=]]> #{pageNum} * #{amount})
+    where rn > (#{pageNum} -1) * #{amount}
+  </select>
+    <sql id="search">
+		<choose>
+			<!-- 검색옵션이 전체 검색일 경우 -->
+			<when test="searchOption == 'all'">
+				where (title like '%'||#{keyword}||'%'
+				OR author like '%'||#{keyword}||'%'
+				OR pub like '%'||#{keyword}||'%')
+			</when>
+			<when test="searchOption == 'title'">
+				where title like '%'||#{keyword}||'%'
+			</when>
+			<when test="searchOption == 'author'">
+				where author like '%'||#{keyword}||'%'
+			</when>
+			<when test="searchOption == 'pub'">
+				where pub like '%'||#{keyword}||'%'
+			</when>
+		</choose>
+	</sql>
+	<!-- 검색목록 수 -->
+	<select id="countSearch" resultType="int">
+		select count(*) from book
+		<if test="keyword != null">
+			<!-- Oracle -->
+			where title like '%'||#{keyword}||'%'
+		</if>
+	</select>
+	
+	<!-- 댓글목록 -->
+	<select id="listReply" resultType="reply">
+		select * from reply where bseq=#{bseq}
+			order by indate desc
+	</select>
+	<!-- 댓글개수 -->
+	<select id="countReply" resultType="int">
+		select count(*) from reply
+			where bseq = #{bseq}
+	</select>
+	
+	<!-- 댓글평점 -->
+	<select id="avgReply" resultType="double">
+		select round(avg(rating),1) from reply
+					where bseq=#{bseq}
+	</select>
+	
+	<!-- 댓글 수 업데이트 -->
+	<update id="updateReplyCount" parameterType="int">
+		update book b
+		set b.replyCount = (select count(rseq) from reply where bseq = #{bseq})
+		where b.bseq = #{bseq}
+	</update>
+	
+	<!-- 댓글 평점 업데이트 -->
+	<update id="updateReplyRating" parameterType="int">
+		update book b
+		set b.rating = (select round(avg(rating),1) from reply where bseq=#{bseq})
+		where b.bseq = #{bseq}
+	</update>
+
+	<!-- 베스트셀러 목록 조회 -->
+	<select id="bestSeller" resultType="book">
+		select * from (
+			select * from book 
+			    order by replycount desc)
+			where rownum <![CDATA[<=]]> 8
+	</select>
+	
+	<!-- 메인 베스트셀러 목록 조회 -->
+	<select id="bookCateB" resultType="book">
+		select * from (
+			select * from book 
+			    order by replycount desc)
+			where rownum <![CDATA[<=]]> 4
+	</select>
+	
+	<!-- 국내도서 목록 조회 -->
+	<select id="bookCateD" resultType="book">
+		select * from book
+			where cate1 ='d'and rownum <![CDATA[<=]]> 4
+			order by bseq
+	</select>
+	
+	<!-- 외국도서 목록 조회 -->
+	<select id="bookCateF" resultType="book">
+		select * from book
+			where cate1 ='f' and rownum <![CDATA[<=]]> 4
+			order by bseq
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
